@@ -1,9 +1,197 @@
-@import './normalize.css';
-@import './reset.css';
-@import './fonts.css';
+@import './base/normalize.css';
+@import './base/reset.css';
+@import './base/fonts.css';
+@import './base/typography.css';
+@import './abstracts/colors.css';
+@import './components/buttons.css';
+
+body {
+  font-family: var(--font-primary);
+  color: var(--color-text);
+  font-weight: normal;
+}
 
 .app {
   width: 100vw;
   height: 100vh;
+  padding: 20px 0;
   background-image: url('../assets/img/bg-body.svg');
+  background-size: cover;
+}
+
+.library {
+  display: flex;
+  flex-direction: column;
+  max-width: 1100px;
+  height: calc(100vh - 40px);
+  margin: 0 auto;
+  padding: 44px;
+  background-color: var(--color-bg);
+  border-radius: 20px;
+}
+
+.library-heading {
+  position: relative;
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+
+  &::before {
+    position: absolute;
+    left: 0;
+    top: -5px;
+    content: '';
+    width: 64px;
+    height: 64px;
+    background-image: url('/assets/img/book-icon.svg');
+    background-size: cover;
+  }
+}
+
+.add-book-btn {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+  margin: 0 auto 40px;
+
+  svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+  }
+}
+
+.books-list {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.books-list-header {
+  display: flex;
+  margin: 0;
+  padding: 13px 34px 13px 23px;
+  list-style: none;
+}
+
+.book {
+  display: flex;
+  margin-bottom: 20px;
+  align-items: center;
+  column-gap: 5px;
+  padding: 13px 34px 13px 23px;
+  background-color: var(--color-white);
+  border-radius: 10px;
+
+  .book-title:hover {
+    color: var(--color-btn-secondary);
+  }
+
+  .book-title:focus-visible {
+    outline: 2px solid var(--color-btn-secondary);
+    border-radius: 10px;
+  }
+}
+
+.book-title {
+  width: 30%;
+  color: inherit;
+  transition: color 0.3s;
+}
+
+.book-author {
+  width: 30%;
+}
+
+.book-pages {
+  width: 10%;
+}
+
+.book-status {
+  width: 10%;
+}
+
+.book-controls {
+  display: flex;
+  justify-content: flex-end;
+  column-gap: 10px;
+  width: 20%;
+
+  button {
+    display: grid;
+    place-content: center;
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--color-text);
+    transition: fill 0.3s;
+  }
+}
+
+.book-status-toggle:focus-visible,
+.book-delete:focus-visible {
+  outline: 2px solid var(--color-btn-secondary);
+}
+
+.book-status-toggle:hover {
+  svg {
+    fill: var(--color-btn-secondary);
+  }
+}
+
+.book-delete:hover {
+  svg {
+    fill: var(--color-btn-danger);
+  }
+}
+
+.book-status-toggle:active,
+.book-delete:active {
+  opacity: 0.6;
+}
+
+dialog {
+  /* box-sizing: border-box; */
+  border: none;
+  border-radius: 10px;
+  padding: 60px 70px 85px;
+  width: 565px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5); /* Затемняющий фон */
+}
+
+.dialog-title {
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+dialog input:not(input[type='checkbox']) {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid #dcd9d9;
+  border-radius: 8px;
+  outline: none;
+  color: var(--color-text);
+
+  &:focus {
+    border-color: var(--color-btn-secondary);
+  }
+}
+
+.input-group + * {
+  margin-top: 20px;
+}
+
+dialog .add-btn {
+  margin-top: 35px;
+  width: 100%;
+  padding: 16px;
+  text-align: center;
 }

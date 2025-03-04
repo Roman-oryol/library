@@ -1,0 +1,32 @@
+:root {
+  --font-primary: 'Inter', sans-serif;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.25rem;
+  --line-height-tight: 1;
+  --line-height-normal: 1.4;
+  --line-height-loose: 1.5;
+}
+
+.heading-regular {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-normal);
+  font-weight: 400;
+}
+
+.heading-bold {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-normal);
+  font-weight: 500;
+}
+
+.text-regular {
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-loose);
+  font-weight: 400;
+}
+
+.text-bold {
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-tight);
+  font-weight: 600;
+}
