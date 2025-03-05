@@ -45,7 +45,7 @@ body {
     content: '';
     width: 64px;
     height: 64px;
-    background-image: url('/assets/img/book-icon.svg');
+    background-image: url('../assets/img/book-icon.svg');
     background-size: cover;
   }
 }
@@ -169,7 +169,7 @@ dialog {
 }
 
 dialog::backdrop {
-  background: rgba(0, 0, 0, 0.5); /* Затемняющий фон */
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .dialog-close {
