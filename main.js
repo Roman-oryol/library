@@ -9,10 +9,10 @@ const dialogAddBookBtn = dialog.querySelector('.add-btn');
 let myLibrary = [];
 
 class Book {
-  currentId = 0;
+  static currentId = 0;
 
   constructor(title, author, pages, isRead) {
-    this.id = Book.incrementId();
+    this.id = Book.getId();
     this.title = title;
     this.author = author;
     this.pages = pages;
@@ -23,14 +23,16 @@ class Book {
     this.isRead = !this.isRead;
   }
 
-  static incrementId() {
-    return ++Book.currentId;
+  static getId() {
+    this.currentId++;
+    return this.currentId;
   }
 }
 
 function addBookToLibrary(title, author, pages, isRead) {
   const newBook = new Book(title, author, pages, isRead);
   myLibrary.push(newBook);
+  console.log(newBook);
 }
 
 function handleDialogAddBook(e) {
